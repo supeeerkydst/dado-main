@@ -1,1 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #111;
+  color: #fff;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-card {
+  background: #1e1e1e;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #0ff;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.socials a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #0ff;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #f0f;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0ff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #111;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00cccc;
+}
+
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #111;
+}
+
+body.light-mode .profile-card {
+  background-color: #fff;
+  color: #111;
+}
+
+body.light-mode .socials a {
+  color: #00f;
+}
+
+body.light-mode button {
+  background-color: #00f;
+  color: #fff;
+}
 
