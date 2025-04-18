@@ -14,26 +14,24 @@
       --text-light: #e0e0e0;
       --border-glow: 2px solid #9b5de5;
     }
+
     body {
       margin: 0;
       font-family: 'Rajdhani', sans-serif;
-      background: #0b0c10;
+      background: linear-gradient(180deg, #0b0c10 0%, #1a1a2e 100%);
       color: var(--text-light);
       scroll-behavior: smooth;
-      background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
-        url('images/tribal-cosmic-bg.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-position: center;
+      background-image: radial-gradient(rgba(155, 93, 229, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
+
     header {
       background: var(--bg-light);
       padding: 3rem 1rem;
       text-align: center;
       border-bottom: var(--border-glow);
     }
+
     header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 3.5rem;
@@ -41,10 +39,12 @@
       margin: 0;
       letter-spacing: 2px;
     }
+
     header p {
       font-size: 1.3rem;
       margin-top: 0.5rem;
     }
+
     nav {
       display: flex;
       justify-content: center;
@@ -54,6 +54,7 @@
       top: 0;
       z-index: 1000;
     }
+
     nav a {
       color: var(--text-light);
       text-decoration: none;
@@ -61,9 +62,11 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: var(--primary);
     }
+
     section {
       padding: 3rem 2rem;
       max-width: 1100px;
@@ -72,39 +75,74 @@
       transform: translateY(20px);
       transition: all 0.8s ease-out;
     }
+
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     h2 {
       color: var(--primary);
       border-left: 6px solid var(--primary);
       padding-left: 1rem;
       margin-bottom: 1.5rem;
     }
+
     ul {
       list-style: none;
       padding: 0;
       line-height: 2;
     }
+
     ul li::before {
       content: '◆';
       color: var(--primary);
       padding-right: 0.5rem;
     }
+
     a {
       color: var(--primary);
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+
+    .card {
+      background: var(--bg-light);
+      border: var(--border-glow);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px rgba(155, 93, 229, 0.15);
+      transition: transform 0.3s ease;
+      animation: glow-border 2s infinite alternate;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(155, 93, 229, 0.4);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--primary);
+    }
+
     @keyframes glow-border {
       0% {
         border-color: #9b5de5;
@@ -119,53 +157,90 @@
         box-shadow: 0 0 10px rgba(155, 93, 229, 0.3);
       }
     }
-    
-    .card {
-      background: var(--bg-light);
-      border: var(--border-glow);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 0 15px rgba(155, 93, 229, 0.15);
-      transition: transform 0.3s ease;
-      animation: glow-border 2s infinite alternate;
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-    
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(155, 93, 229, 0.4);
+
+    .modal-content {
+      background-color: #111;
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #9b5de5;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+      border-radius: 10px;
     }
-    .card img {
+
+    .modal img {
       width: 100%;
       border-radius: 10px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
-    .card h3 {
-      margin: 0.5rem 0;
+
+    .modal h2 {
       color: var(--primary);
     }
+
+    .modal p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    .close-btn {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+      color: #9b5de5;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Modal Visibility */
+    .modal.show {
+      display: block;
+      opacity: 1;
+    }
+
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
     }
-    .gallery-card {
-      background: var(--bg-light);
-      border: var(--border-glow);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.4s ease;
-      box-shadow: 0 0 18px rgba(155, 93, 229, 0.25);
-    }
-    .gallery-card img {
+
+    .gallery-grid img {
       width: 100%;
-      height: auto;
-      display: block;
+      border-radius: 10px;
+      border: 2px solid var(--primary);
+      transition: transform 0.4s ease;
     }
-    .gallery-card:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 25px rgba(155, 93, 229, 0.6);
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(155, 93, 229, 0.6);
     }
+
     footer {
       background: #0a0a0a;
       text-align: center;
@@ -173,8 +248,10 @@
       color: #888;
       font-size: 0.95rem;
     }
+
   </style>
 </head>
+
 <body>
   <header>
     <h1>FRX</h1>
@@ -210,22 +287,22 @@
   <section id="activities">
     <h2>Activities</h2>
     <div class="card-grid">
-      <div class="card">
+      <div class="card" onclick="openModal('activity1')">
         <img src="images/activity1.jpg" alt="Activity 1">
         <h3>FRXVerse: Eclipticode</h3>
         <p>Building a mythic cyberpunk multiverse system.</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="openModal('activity2')">
         <img src="images/activity2.jpg" alt="Activity 2">
         <h3>Faction Design</h3>
         <p>Creating cyber-mythic esports factions with identity.</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="openModal('activity3')">
         <img src="images/activity3.jpg" alt="Activity 3">
         <h3>Lore & Scriptwriting</h3>
         <p>Writing multiverse stories and cinematic trailers.</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="openModal('activity4')">
         <img src="images/activity4.jpg" alt="Activity 4">
         <h3>Visual Design</h3>
         <p>Crafting logos and futuristic visual elements.</p>
@@ -233,57 +310,64 @@
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">FRXVerse: The Eternal Convergence</a></li>
-      <li><a href="#">Eclipticode: Cyberpunk Mythos Engine</a></li>
-      <li><a href="#">FRX Esports Brand Design</a></li>
-      <li><a href="#">Multiversal Portfolio Web Template</a></li>
-    </ul>
-  </section>
-
-  <section id="affiliations">
-    <h2>Affiliations</h2>
-    <ul>
-      <li>FRX Creative Studios</li>
-      <li>Open Source Multiverse Builders</li>
-      <li>CyberLore Guild</li>
-    </ul>
-  </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-card"><img src="images/gallery1.jpg" alt="Gallery Image 1"></div>
-      <div class="gallery-card"><img src="images/gallery2.jpg" alt="Gallery Image 2"></div>
-      <div class="gallery-card"><img src="images/gallery3.jpg" alt="Gallery Image 3"></div>
-      <div class="gallery-card"><img src="images/gallery4.jpg" alt="Gallery Image 4"></div>
+  <!-- Modal Template -->
+  <div id="activityModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Activity Title</h2>
+      <img id="modalImage" src="" alt="Activity Image">
+      <p id="modalDescription">Complete activity details will go here.</p>
     </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>🌐 <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-  </section>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Your Name. Forged in the multiverse. Inspired by Wakanda.</p>
+    <p>&copy; 2025 FRX | All rights reserved.</p>
   </footer>
 
   <script>
-    const sections = document.querySelectorAll("section");
-    const revealSection = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+    function openModal(activity) {
+      const modal = document.getElementById('activityModal');
+      const title = document.getElementById('modalTitle');
+      const image = document.getElementById('modalImage');
+      const description = document.getElementById('modalDescription');
+      
+      // Define activity details
+      const activityDetails = {
+        activity1: {
+          title: 'FRXVerse: Eclipticode',
+          image: 'images/activity1_large.jpg',
+          description: 'Building a mythic cyberpunk multiverse system, designing realms, characters, and epic storylines for a new digital world.'
+        },
+        activity2: {
+          title: 'Faction Design',
+          image: 'images/activity2_large.jpg',
+          description: 'Creating unique cyberpunk factions, complete with backstory, visual identity, and specific goals within the multiverse.'
+        },
+        activity3: {
+          title: 'Lore & Scriptwriting',
+          image: 'images/activity3_large.jpg',
+          description: 'Writing detailed scripts for trailers and lore, setting the stage for immersive multiversal narratives and character arcs.'
+        },
+        activity4: {
+          title: 'Visual Design',
+          image: 'images/activity4_large.jpg',
+          description: 'Designing cyberpunk aesthetics, logos, and visual elements for futuristic settings and esports brands.'
         }
-      });
-    };
-    const observer = new IntersectionObserver(revealSection, { threshold: 0.15 });
-    sections.forEach(section => observer.observe(section));
+      };
+
+      // Update modal content
+      title.innerText = activityDetails[activity].title;
+      image.src = activityDetails[activity].image;
+      description.innerText = activityDetails[activity].description;
+
+      // Show modal
+      modal.classList.add('show');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('activityModal');
+      modal.classList.remove('show');
+    }
   </script>
 </body>
 </html>
