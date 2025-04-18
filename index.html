@@ -2,72 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dado | Multiversal Dev</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Multiverse Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rajdhani', sans-serif;
+      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #0a0a0a;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 3px solid #00bcd4;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #00bcd4;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      margin-top: 0.5rem;
+    }
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #333;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #00bcd4;
+      border-left: 4px solid #00bcd4;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li::before {
+      content: '◉';
+      color: #00bcd4;
+      padding-right: 0.5rem;
+    }
+    a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00bcd4;
+    }
+    footer {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <nav>
-      <h1 class="logo">Dado<span>Verse</span></h1>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="toggle-mode">☀️/🌙</button></li>
-      </ul>
-    </nav>
+    <h1>Your Name</h1>
+    <p>Explorer of Code | Dreamer of Multiverses</p>
   </header>
 
-  <section id="hero" class="hero">
-    <div class="hero-text">
-      <h2>Hello, I’m <span class="typed-text">@supeeerkydst</span></h2>
-      <p>🌐 Navigating code across dimensions</p>
-    </div>
-    <img src="https://avatars.githubusercontent.com/YourUsername" alt="Your Avatar" class="avatar" />
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a creator shaped by code, stories, and dimensions. I explore tech through myth, design through soul, and build experiences that span universes.</p>
   </section>
 
-  <section id="projects" class="section">
-    <h2>🌌 Portals I’ve Opened (Projects)</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Project Nebula</h3>
-        <p>A cosmic blog engine built with React & GraphQL.</p>
-      </div>
-      <div class="card">
-        <h3>ChronoDash</h3>
-        <p>Multiversal time-tracker for freelancers.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
-    <h2>🛠️ Tech I Wield</h2>
-    <ul class="skills">
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Node.js</li>
-      <li>Python</li>
-      <li>Figma</li>
-      <li>Cyber UI/UX</li>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Web Development (HTML, CSS, JavaScript)</li>
+      <li>UI/UX Design</li>
+      <li>Creative Writing & Worldbuilding</li>
+      <li>Cyberpunk & Multiversal Concept Design</li>
+      <li>Git/GitHub</li>
     </ul>
   </section>
 
-  <section id="contact" class="section contact">
-    <h2>📡 Contact Me</h2>
-    <p>Ready to collaborate across realities?</p>
-    <div class="socials">
-      <a href="https://github.com/supeeerkydst" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/navarro-kim-dev" target="_blank">LinkedIn</a>
-      <a href="mailto:knavarro242@gmail.com">Email</a>
+  <section id="activities">
+    <h2>Activities</h2>
+    <ul>
+      <li>Building FRXVerse: Eclipticode</li>
+      <li>Designing cyber-mythic esports factions</li>
+      <li>Writing multiverse lore and epic scripts</li>
+      <li>Creating visual assets and concept logos</li>
+    </ul>
+    <div class="gallery">
+      <img src="images/activity1.jpg" alt="Activity 1" />
+      <img src="images/activity2.jpg" alt="Activity 2" />
+      <img src="images/activity3.jpg" alt="Activity 3" />
+      <img src="images/activity4.jpg" alt="Activity 4" />
     </div>
   </section>
 
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="#">FRXVerse: The Eternal Convergence</a></li>
+      <li><a href="#">Eclipticode: Cyberpunk Mythos Engine</a></li>
+      <li><a href="#">FRX Esports Brand Design</a></li>
+      <li><a href="#">Multiversal Portfolio Web Template</a></li>
+    </ul>
+  </section>
+
+  <section id="affiliations">
+    <h2>Affiliations</h2>
+    <ul>
+      <li>FRX Creative Studios</li>
+      <li>Open Source Multiverse Builders</li>
+      <li>CyberLore Guild</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>🌐 <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+  </section>
+
   <footer>
-    <p>© 2025 DadoVerse • Powered by stardust & caffeine ☕</p>
+    <p>&copy; 2025 Your Name. Forged in the multiverse. Inspired by Wakanda.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const options = {
+      threshold: 0.2
+    };
+
+    const revealSection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(revealSection, options);
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
