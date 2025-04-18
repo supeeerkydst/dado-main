@@ -6,84 +6,124 @@
   <title>Your Name | Multiverse Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #5bc0be;
+      --accent: #0f4c75;
+      --bg-dark: #0b0c10;
+      --bg-light: #1f2833;
+      --text-light: #c5c6c7;
+      --border-glow: 2px solid #5bc0be;
+    }
     body {
       margin: 0;
       font-family: 'Rajdhani', sans-serif;
-      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-      color: #e0e0e0;
+      background: var(--bg-dark);
+      color: var(--text-light);
       scroll-behavior: smooth;
     }
     header {
-      background: #0a0a0a;
-      padding: 2rem;
+      background: var(--bg-light);
+      padding: 3rem 1rem;
       text-align: center;
-      border-bottom: 3px solid #00bcd4;
+      border-bottom: var(--border-glow);
     }
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      color: #00bcd4;
+      font-size: 3rem;
+      color: var(--primary);
       margin: 0;
     }
     header p {
-      font-size: 1.2rem;
-      color: #cccccc;
+      font-size: 1.3rem;
       margin-top: 0.5rem;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #111;
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
     section {
-      padding: 2rem;
-      border-bottom: 1px solid #333;
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.6s ease-out;
+      transition: all 0.8s ease-out;
     }
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
     h2 {
-      color: #00bcd4;
-      border-left: 4px solid #00bcd4;
-      padding-left: 0.5rem;
-      margin-bottom: 1rem;
+      color: var(--primary);
+      border-left: 6px solid var(--primary);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
     }
     ul {
       list-style: none;
       padding: 0;
+      line-height: 2;
     }
     ul li::before {
-      content: '◉';
-      color: #00bcd4;
+      content: '◆';
+      color: var(--primary);
       padding-right: 0.5rem;
     }
     a {
-      color: #00bcd4;
+      color: var(--primary);
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
-    .gallery {
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .gallery img {
+    .card {
+      background: var(--bg-light);
+      border: var(--border-glow);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px rgba(91, 192, 190, 0.1);
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(91, 192, 190, 0.4);
+    }
+    .card img {
       width: 100%;
       border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 1rem;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #00bcd4;
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--primary);
     }
     footer {
       background: #0a0a0a;
       text-align: center;
-      padding: 1rem;
-      color: #666;
-      font-size: 0.9rem;
+      padding: 1.5rem;
+      color: #888;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -92,6 +132,15 @@
     <h1>Your Name</h1>
     <p>Explorer of Code | Dreamer of Multiverses</p>
   </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#activities">Activities</a>
+    <a href="#projects">Projects</a>
+    <a href="#affiliations">Affiliations</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <section id="about">
     <h2>About Me</h2>
@@ -111,17 +160,27 @@
 
   <section id="activities">
     <h2>Activities</h2>
-    <ul>
-      <li>Building FRXVerse: Eclipticode</li>
-      <li>Designing cyber-mythic esports factions</li>
-      <li>Writing multiverse lore and epic scripts</li>
-      <li>Creating visual assets and concept logos</li>
-    </ul>
-    <div class="gallery">
-      <img src="images/activity1.jpg" alt="Activity 1" />
-      <img src="images/activity2.jpg" alt="Activity 2" />
-      <img src="images/activity3.jpg" alt="Activity 3" />
-      <img src="images/activity4.jpg" alt="Activity 4" />
+    <div class="card-grid">
+      <div class="card">
+        <img src="images/activity1.jpg" alt="Activity 1">
+        <h3>FRXVerse: Eclipticode</h3>
+        <p>Building a mythic cyberpunk multiverse system.</p>
+      </div>
+      <div class="card">
+        <img src="images/activity2.jpg" alt="Activity 2">
+        <h3>Faction Design</h3>
+        <p>Creating cyber-mythic esports factions with identity.</p>
+      </div>
+      <div class="card">
+        <img src="images/activity3.jpg" alt="Activity 3">
+        <h3>Lore & Scriptwriting</h3>
+        <p>Writing multiverse stories and cinematic trailers.</p>
+      </div>
+      <div class="card">
+        <img src="images/activity4.jpg" alt="Activity 4">
+        <h3>Visual Design</h3>
+        <p>Crafting logos and futuristic visual elements.</p>
+      </div>
     </div>
   </section>
 
@@ -156,11 +215,6 @@
 
   <script>
     const sections = document.querySelectorAll("section");
-
-    const options = {
-      threshold: 0.2
-    };
-
     const revealSection = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -169,11 +223,8 @@
         }
       });
     };
-
-    const observer = new IntersectionObserver(revealSection, options);
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    const observer = new IntersectionObserver(revealSection, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
