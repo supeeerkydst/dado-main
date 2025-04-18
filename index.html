@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Multiverse Portfolio</title>
+  <title>FRX | Cybermultiversal Creator</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #9b5de5; /* Vibranium purple */
-      --accent: #2d1e40; /* Deeper shadow purple */
+      --primary: #9b5de5;
+      --accent: #5f0f40;
       --bg-dark: #0b0c10;
-      --bg-light: #14151a;
-      --text-light: #c5c6c7;
+      --bg-light: #1a1a2e;
+      --text-light: #e0e0e0;
       --border-glow: 2px solid #9b5de5;
     }
     body {
       margin: 0;
       font-family: 'Rajdhani', sans-serif;
-      background: var(--bg-dark);
+      background: linear-gradient(180deg, #0b0c10 0%, #1a1a2e 100%);
       color: var(--text-light);
       scroll-behavior: smooth;
+      background-image: radial-gradient(rgba(155, 93, 229, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
     header {
       background: var(--bg-light);
@@ -29,9 +31,10 @@
     }
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
+      font-size: 3.5rem;
       color: var(--primary);
       margin: 0;
+      letter-spacing: 2px;
     }
     header p {
       font-size: 1.3rem;
@@ -40,7 +43,7 @@
     nav {
       display: flex;
       justify-content: center;
-      background: #0d0d0d;
+      background: #111;
       padding: 0.5rem;
       position: sticky;
       top: 0;
@@ -103,7 +106,7 @@
       border-radius: 12px;
       padding: 1.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 15px rgba(155, 93, 229, 0.1);
+      box-shadow: 0 0 15px rgba(155, 93, 229, 0.15);
     }
     .card:hover {
       transform: scale(1.03);
@@ -118,6 +121,22 @@
       margin: 0.5rem 0;
       color: var(--primary);
     }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid var(--primary);
+      transition: transform 0.4s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(155, 93, 229, 0.6);
+    }
     footer {
       background: #0a0a0a;
       text-align: center;
@@ -129,7 +148,7 @@
 </head>
 <body>
   <header>
-    <h1>Your Name</h1>
+    <h1>FRX</h1>
     <p>Explorer of Code | Dreamer of Multiverses</p>
   </header>
 
@@ -139,6 +158,7 @@
     <a href="#activities">Activities</a>
     <a href="#projects">Projects</a>
     <a href="#affiliations">Affiliations</a>
+    <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -203,6 +223,16 @@
     </ul>
   </section>
 
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/gallery1.jpg" alt="Gallery Image 1">
+      <img src="images/gallery2.jpg" alt="Gallery Image 2">
+      <img src="images/gallery3.jpg" alt="Gallery Image 3">
+      <img src="images/gallery4.jpg" alt="Gallery Image 4">
+    </div>
+  </section>
+
   <section id="contact">
     <h2>Contact</h2>
     <p>📧 <a href="mailto:youremail@example.com">youremail@example.com</a></p>
@@ -223,7 +253,7 @@
         }
       });
     };
-    const observer = new IntersectionObserver(revealSection, { threshold: 0.2 });
+    const observer = new IntersectionObserver(revealSection, { threshold: 0.15 });
     sections.forEach(section => observer.observe(section));
   </script>
 </body>
